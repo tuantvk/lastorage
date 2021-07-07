@@ -1,6 +1,6 @@
 {
   "name": "lastorage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Data storage for React Native use AsyncStorage",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -34,7 +34,10 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "database",
+    "storage",
+    "asyncstorage"
   ],
   "repository": "https://github.com/tuantvk/lastorage",
   "author": "tuantvk <tuanhanhphuc123@gmail.com> (https://github.com/tuantvk)",
