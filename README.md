@@ -13,6 +13,16 @@ or
 yarn add lastorage
 ```
 
+Add AsyncStorage library
+
+```sh
+npm install @react-native-async-storage/async-storage
+# or
+yarn add @react-native-async-storage/async-storage
+```
+
+View more documents in [AsyncStorage](https://react-native-async-storage.github.io/async-storage)
+
 
 ## Usage
 
