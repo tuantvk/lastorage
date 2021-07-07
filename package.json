@@ -1,6 +1,6 @@
 {
   "name": "lastorage",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Data storage for React Native use AsyncStorage",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -51,9 +51,7 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "*",
-    "react-native-get-random-values": "1.7.0",
-    "react-native-uuid": "^2.0.1",
-    "uuid": "8.3.2"
+    "react-native-uuid": "^2.0.1"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
