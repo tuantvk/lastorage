@@ -9,8 +9,10 @@ class Lastorage {
   constructor(name: string) {
     this.name = name;
     this.stores = [];
-    if (__DEV__ && this.name.trim().length === 0) {
-      throw Error('Missing name storage');
+    if (__DEV__ && (!this.name || this.name.trim().length === 0)) {
+      throw Error(
+        `Missing name of the storage.\nExample: new Lastorage('todos');`
+      );
     }
   }
 
