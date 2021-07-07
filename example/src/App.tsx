@@ -15,8 +15,8 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [text, setText] = useState<string>('');
 
-  const findTodos = async () => {
-    let todosLocal = await todos.find();
+  const findTodos = () => {
+    let todosLocal = todos.find();
     setData(todosLocal);
   };
 

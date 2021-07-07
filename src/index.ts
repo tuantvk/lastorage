@@ -4,8 +4,8 @@ import { setItem, getItem, removeItem } from './storage';
 import type { TProps } from './types';
 
 class Lastorage {
-  stores: any[];
-  readonly name: string;
+  private stores: any[];
+  private readonly name: string;
   constructor(name: string) {
     this.name = name;
     this.stores = [];
@@ -61,7 +61,7 @@ class Lastorage {
       let filtersValues = Object.values(filters);
       let rowValues = Object.keys(filters).map((key) => row[key]);
       if (JSON.stringify(filtersValues) === JSON.stringify(rowValues)) {
-        return Object.assign(row, value);
+        return Object.assign(row, value, { _id: row._id });
       }
       return row;
     });

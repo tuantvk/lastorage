@@ -21,6 +21,12 @@ npm install @react-native-async-storage/async-storage
 yarn add @react-native-async-storage/async-storage
 ```
 
+On iOS, use CocoaPods to add the native `RNAsyncStorage` to your project:
+
+```sh
+npx pod-install
+```
+
 View more documents in [AsyncStorage](https://react-native-async-storage.github.io/async-storage)
 
 
