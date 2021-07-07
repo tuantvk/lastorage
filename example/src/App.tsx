@@ -4,7 +4,6 @@ import { Appbar, TextInput, Button, Searchbar } from 'react-native-paper';
 import Lastorage from 'lastorage';
 
 const todos = new Lastorage('todos');
-todos.init();
 
 type IProps = {
   _id: string;
@@ -22,7 +21,12 @@ const App = () => {
   };
 
   useEffect(() => {
-    findTodos();
+    const fetchTodos = () => {
+      todos.init(() => {
+        findTodos();
+      });
+    };
+    fetchTodos();
   }, []);
 
   const onChangeSearch = (query: string) => setSearchQuery(query);

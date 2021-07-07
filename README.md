@@ -27,7 +27,11 @@ import Lastorage from "lastorage";
 ```js
 // table name `todos`
 const todos = new Lastorage('todos');
-todos.init();
+todos.init(() => {
+  todos.find();
+});
+
+// you should call the init method when you want get data from local storage
 ```
 
 ### Drop
@@ -45,7 +49,7 @@ todos.insert({
   status: 1,
 });
 
-// method insert return _id
+// the insert method return _id
 ```
 
 ### Insert Multiple Rows
@@ -64,7 +68,7 @@ todos.insertMany([
   },
 ]);
 
-// method return array with _id
+// the insertMany method return array with _id
 ```
 
 ### Get All Rows

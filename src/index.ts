@@ -14,9 +14,10 @@ class Lastorage {
     }
   }
 
-  init() {
+  init(cb?: () => void) {
     getItem(this.name).then((response) => {
       this.stores = response;
+      cb && cb();
     });
   }
 
@@ -36,7 +37,7 @@ class Lastorage {
 
   insertMany(values: TProps[]): TProps[] {
     let newStores = [...this.stores];
-    let newValues = values.map(val => {
+    let newValues = values.map((val) => {
       return Object.assign(val, { _id: uuid.v4() });
     });
     newStores = newValues.concat(newStores);
