@@ -32,6 +32,22 @@ View more documents in [AsyncStorage](https://react-native-async-storage.github.
 
 ## Usage
 
+### Methods
+
+1. [ Import ](#import)
+2. [ Create And Init Database ](#create-and-init-database)
+3. [ Drop ](#drop)
+4. [ Insert Row ](#insert-row)
+5. [ Insert Multiple Rows ](#insert-multiple-rows)
+6. [ Get All Rows ](#get-all-rows)
+7. [ Find Rows ](#find-rows)
+8. [ Count Rows ](#count-rows)
+9. [ Limit Rows ](#limit-rows)
+10. [ Find One Row ](#find-one-row)
+11. [ Update Row ](#update-row)
+12. [ Delete Row ](#delete-row)
+13. [ Text Search ](#text-search)
+
 ### Import
 
 ```js
