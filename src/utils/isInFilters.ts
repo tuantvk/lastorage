@@ -1,5 +1,10 @@
 import type { TProps } from '../types';
 
+/** Check key in row have in filters.
+ * @param row TProps
+ * @param filters TProps
+ * @return boolean
+ */
 function isInFilters(row: TProps, filters?: TProps) {
   for (let key in filters) {
     if (filters[key] instanceof RegExp) {
