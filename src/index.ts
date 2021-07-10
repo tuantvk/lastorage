@@ -16,6 +16,10 @@ class Lastorage {
     }
   }
 
+  /** Subscribe a callback to "ready" event.
+   * Callbacks will be called when loaded data from local storage.
+   * @param cb
+   */
   init(cb?: () => void) {
     getItem(this.name).then((response) => {
       this.stores = response;
@@ -23,11 +27,16 @@ class Lastorage {
     });
   }
 
+  /** Remove data. */
   drop() {
     this.stores = [];
     removeItem(this.name);
   }
 
+  /** Insert value to storage. Key `_id` in value will be ignored.
+   * @param value TProps
+   * @return TProps
+   */
   insert(value: TProps): TProps {
     let newStores = [...this.stores];
     let newValue = Object.assign(value, { _id: uuid.v4() });
@@ -37,6 +46,10 @@ class Lastorage {
     return newValue;
   }
 
+  /** Insert multiple values into a storage. Key `_id` will ignore.
+   * @param values TProps[]
+   * @return TProps[]
+   */
   insertMany(values: TProps[]): TProps[] {
     let newStores = [...this.stores];
     let newValues = values.map((val) => {
@@ -48,14 +61,27 @@ class Lastorage {
     return newValues;
   }
 
+  /** Select all values by filters.
+   * @param filters TProps
+   * Example: todos.find({ name: 'hello' }) or use `RegExp` todos.find({ name: /hello/ })
+   */
   find(filters?: TProps) {
     return this.stores.filter((row) => isInFilters(row, filters));
   }
 
+  /** Select the first value by filters.
+   * Example: todos.find({ name: 'hello' }) or use `RegExp` todos.find({ name: /hello/ })
+   * @param filters TProps
+   * @return TProps[]
+   */
   findOne(filters?: TProps) {
     return this.stores.find((row) => isInFilters(row, filters));
   }
 
+  /** Update value by filters.
+   * @param filters TProps
+   * @param value TProps
+   */
   update(filters: TProps, value: TProps) {
     let newStores = this.stores.map((row) => {
       let filtersValues = Object.values(filters);
@@ -69,6 +95,9 @@ class Lastorage {
     setItem(this.name, newStores);
   }
 
+  /** Remove values by filters.
+   * @param filters TProps
+   */
   remove(filters?: TProps) {
     let newStores = this.stores.filter((row) => !isInFilters(row, filters));
     this.stores = newStores;
