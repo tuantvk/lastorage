@@ -1,6 +1,6 @@
 {
   "name": "lastorage",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Data storage for React Native use AsyncStorage",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
