@@ -84,7 +84,8 @@
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
-    ]
+    ],
+    "setupFiles": ["./jestSetupFile.js"]
   },
   "husky": {
     "hooks": {
@@ -135,7 +136,8 @@
   },
   "eslintIgnore": [
     "node_modules/",
-    "lib/"
+    "lib/",
+    "jestSetupFile.js"
   ],
   "prettier": {
     "quoteProps": "consistent",
