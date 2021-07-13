@@ -100,3 +100,36 @@ test('text search', () => {
   const result = todos.find({ content: /Content/ });
   expect(result).toHaveLength(2);
 });
+
+describe('find & limit & count', () => {
+  it('limit 2', () => {
+    const todos = new Lastorage('todos');
+    todos.insertMany(values);
+    const result = todos.find().limit(2).count();
+    expect(result).toEqual(2);
+  });
+
+  it('find with params', () => {
+    const todos = new Lastorage('todos');
+    todos.insertMany(values);
+    const result = todos
+      .find({ content: /Content/ })
+      .limit(2)
+      .count();
+    expect(result).toEqual(2);
+  });
+
+  it('not found data', () => {
+    const todos = new Lastorage('todos');
+    todos.insertMany(values);
+    const result = todos.find({ content: 'Other' }).limit(2).count();
+    expect(result).toEqual(0);
+  });
+});
+
+test('find one not found data', () => {
+  const todos = new Lastorage('todos');
+  todos.insertMany(values);
+  const result = todos.findOne({ content: 'Other' });
+  expect(result).toBeUndefined();
+});
